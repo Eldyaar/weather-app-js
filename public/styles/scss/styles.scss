@@ -1,0 +1,459 @@
+@import "normalize.scss";
+
+// === # MIXINS ===
+@mixin font-inter {
+   font-family: "Inter", sans-serif;
+}
+
+// === # HEADER ===
+
+.header {
+   width: 1200px;
+   display: flex;
+   justify-content: space-between;
+   margin: 60px auto 0;
+
+   &-info {
+      &__city {
+         display: flex;
+         gap: 10px;
+         margin-bottom: 35px;
+         cursor: pointer;
+
+         &_icon,
+         &_name,
+         &_more {
+            font-size: 24px;
+         }
+
+         &_name {
+            @include font-inter;
+         }
+      }
+
+      &__values {
+         @include font-inter;
+
+         &_degree {
+            font-size: 64px;
+            font-weight: 500;
+         }
+
+         &_date {
+            font-size: 18px;
+            font-weight: 400;
+         }
+      }
+
+      &__description {
+         font-size: 48px;
+         font-weight: 500;
+         margin-bottom: 100px;
+
+         @include font-inter;
+      }
+   }
+
+   &-cloud {
+      width: 321px;
+      height: 321px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i {
+         font-size: 240px;
+      }
+   }
+}
+
+// === # CONTENT ===
+
+.content {
+   width: 1300px;
+   margin: 25px auto 40px;
+   display: grid;
+   grid-gap: 20px;
+   grid-template-columns: 100px 1fr 324px;
+   grid-template-rows: 245px 1fr;
+   grid-template-areas:
+      "aside activities more"
+      "aside forecast more";
+
+   &-aside,
+   &-activities,
+   &-forecast,
+   &-more {
+      border-radius: 40px;
+      background: #deab4d;
+   }
+
+   &-aside {
+      grid-area: aside;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0;
+
+      div {
+         display: flex;
+         flex-direction: column;
+         gap: 25px;
+         text-align: center;
+      }
+
+      &__user {
+         background: url("https://images.chesscomfiles.com/uploads/v1/master_player/8753bc62-1375-11ea-9c38-4d9c54e0df42.4c9205d1.250x250o.1601bf5e761d.jpg");
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         height: 60px;
+         width: 60px;
+         border-radius: 50%;
+         margin: 0 auto;
+      }
+
+      a {
+         text-align: center;
+
+         i {
+            font-size: 34px;
+            margin-bottom: 5px;
+         }
+
+         p {
+            font-size: 14px;
+            font-weight: 600;
+
+            @include font-inter;
+         }
+      }
+   }
+
+   &-activities {
+      grid-area: activities;
+      margin-left: 20px;
+      padding: 20px 30px;
+
+      &__title {
+         display: flex;
+         gap: 10px;
+         margin-bottom: 36px;
+
+         i,
+         p {
+            font-size: 24px;
+         }
+
+         p {
+            font-weight: 500;
+
+            @include font-inter;
+         }
+      }
+
+      &__item {
+         display: flex;
+         justify-content: space-between;
+
+         &-card {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+
+            &_img {
+               width: 178px;
+               height: 108px;
+               margin-bottom: 2px;
+               border-radius: 10px;
+               background-size: cover;
+               background-position: center;
+               background-repeat: no-repeat;
+            }
+
+            &_desc {
+               font-size: 12px;
+               font-weight: 500;
+               color: #000;
+
+               @include font-inter;
+            }
+         }
+      }
+   }
+
+   &-forecast {
+      grid-area: forecast;
+      margin-left: 20px;
+      padding: 20px 30px;
+
+      &__title {
+         display: flex;
+         gap: 10px;
+         padding-bottom: 20px;
+
+         i,
+         p {
+            font-size: 18px;
+         }
+
+         p {
+            font-weight: 400;
+
+            @include font-inter;
+         }
+      }
+
+      &__chart {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         height: 200px;
+         padding: 10px;
+
+         .bar {
+            flex: 1;
+            margin: 0 5px;
+            transition: height 0.3s ease;
+
+            &__info {
+               @include font-inter;
+               color: #fff;
+
+               &_degree {
+                  font-size: 15px;
+                  font-weight: 500;
+                  line-height: 17px;
+                  margin-bottom: 35px;
+               }
+
+               &-more {
+                  &_icon {
+                     width: 24px;
+                     height: 24px;
+                     margin-bottom: 5px;
+                  }
+
+                  &_wind,
+                  &_time {
+                     font-size: 8px;
+                     font-weight: 400;
+                     line-height: 10px;
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   &-more {
+      grid-area: more;
+      padding: 20px;
+      position: relative;
+
+      .gradient-overlay {
+         position: absolute;
+         height: 200px;
+         width: 100%;
+         left: 0;
+         bottom: 0;
+         background: linear-gradient(to bottom, rgba(229, 173, 70, 0), rgba(229, 173, 70, 0)),
+            url("../../assets/img/gradient-overlay.png");
+         background-size: cover;
+         z-index: 1;
+      }
+
+      &__info {
+         position: relative;
+         z-index: 2;
+
+         @include font-inter;
+
+         &_time {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 25px;
+
+            i {
+               font-size: 18px;
+            }
+
+            p {
+               font-size: 18px;
+               font-weight: 500;
+            }
+         }
+
+         &-conditions {
+            margin-top: 35px;
+
+            &_title {
+               font-size: 18px;
+               font-weight: 500;
+               line-height: 16px;
+               margin-bottom: 20px;
+            }
+
+            &_info {
+               display: flex;
+               flex-direction: column;
+               gap: 50px;
+
+               &__feel,
+               &__wind,
+               &__rain,
+               &__uv {
+                  display: flex;
+                  gap: 7px;
+
+                  .feel-icon,
+                  .wind-icon,
+                  .rain-icon,
+                  .uv-icon {
+                     font-size: 25px;
+                     width: 25px;
+                     height: 25px;
+                  }
+
+                  .description {
+                     .name {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 14px;
+                        margin-bottom: 5px;
+                     }
+
+                     .value {
+                        font-size: 16px;
+                        font-weight: 500;
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      &__week-days {
+         height: 50px;
+         display: flex;
+         justify-content: space-between;
+         padding-top: 20px;
+
+         .days-slider {
+            overflow-x: hidden;
+            align-self: center;
+
+            .swiper-wrapper {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+
+               .days-slide {
+                  padding: 5px 10px;
+                  text-align: center;
+
+                  &__name {
+                     font-size: 16px;
+                     font-weight: 500;
+                     margin-bottom: 5px;
+                  }
+                  
+                  &__icon {
+                     width: 25px;
+                     height: 25px;
+                     font-size: 25px;
+                  }
+               }
+            }
+         }
+
+         .prev-btn,
+         .next-btn {
+            background: none;
+            padding: 5px;
+            border: none;
+            color: #fff;
+            outline: none;
+         }
+      }
+   }
+}
+
+// === # MODAL ===
+
+.modal {
+   position: fixed;
+   height: 100%;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 2;
+   display: none;
+
+   &_dialog {
+      max-width: 500px;
+      margin: 150px auto;
+   }
+
+   &_content {
+      position: relative;
+      width: 100%;
+      padding: 40px;
+      background-color: black;
+      opacity: 0.6;
+      border: 2px solid var(--orange);
+      border-radius: 4px;
+      max-height: 80vh;
+      overflow-y: auto;
+      border-radius: 30px;
+
+      @include font-inter;
+
+      .form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+   }
+
+   &_close {
+      position: absolute;
+      top: 8px;
+      right: 14px;
+      font-size: 30px;
+      color: red;
+      opacity: 0.5;
+      font-weight: 700;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+   }
+
+   &_title {
+      text-align: center;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 40px;
+   }
+
+   &_input,
+   &_submit {
+      height: 50px;
+      width: 100% !important;
+      margin-top: 10px;
+      border-radius: 10px;
+      padding-left: 10px;
+   }
+
+   &_input {
+      outline: none;
+   }
+
+   &_submit {
+      font-size: 24px;
+      margin-top: 20px;
+   }
+}

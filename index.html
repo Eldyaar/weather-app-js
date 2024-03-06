@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./public/assets/img/weather.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+</head>
+
+<body style="background-color: #D69E36; color: #fff;">
+  <div class="header">
+    <div class="header-info">
+      <div class="header-info__city">
+        <i class="fa-solid fa-location-dot header-info__city_icon"></i>
+        <div class="header-info__city_name"></div>
+        <i class="fa-solid fa-chevron-right header-info__city_more"></i>
+      </div>
+      <div class="header-info__description"></div>
+      <div class="header-info__values">
+        <div class="header-info__values_degree"></div>
+        <div class="header-info__values_date"></div>
+      </div>
+    </div>
+    <div class="header-cloud"></div>
+  </div>
+
+  <div class="content">
+
+    <section class="content-aside">
+      <a class="content-aside__user"></a>
+      <div>
+        <a class="content-aside__weather">
+          <i class="fa-solid fa-cloud-sun-rain"></i>
+          <p class="content-aside__weather_title">weather</p>
+        </a>
+        <a class="content-aside__explore">
+          <i class="fa-solid fa-compass"></i>
+          <p class="content-aside__explore_title">explore</p>
+        </a>
+        <a class="content-aside__cities">
+          <i class="fa-solid fa-location-dot"></i>
+          <p class="content-aside__cities_title">cities</p>
+        </a>
+        <a class="content-aside__settings">
+          <i class="fa-solid fa-gear"></i>
+          <p class="content-aside__settings_title">settings</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-activities">
+      <div class="content-activities__title">
+        <i class="fa-solid fa-heart"></i>
+        <p>Activities in your area</p>
+      </div>
+      <div class="content-activities__item">
+        <!-- some items -->
+      </div>
+    </section>
+
+    <section class="content-forecast">
+      <div class="content-forecast__title">
+        <i class="fa-solid fa-clock"></i>
+        <p>Activities in your area</p>
+      </div>
+      <div class="content-forecast__chart">
+        <!-- forecast chart -->
+      </div>
+    </section>
+
+    <section class="content-more">
+
+      <div class="content-more__week-days">
+        <button class="prev-btn">&lt;</button>
+        <div class="swiper days-slider">
+          <div class="swiper-wrapper">
+            <!-- slide-items -->
+          </div>
+        </div>
+        <button class="next-btn">&gt;</button>
+      </div>
+
+      <div class="content-more__info">
+        <div class="content-more__info_time">
+          <i class="fa-solid fa-clock"></i>
+          <p id="current-hour"></p>
+        </div>
+        <div class="content-more__info-conditions">
+          <div class="content-more__info-conditions_title">AIR CONDITIONS</div>
+          <div class="content-more__info-conditions_info">
+
+            <div class="content-more__info-conditions_info__feel">
+              <i class="fa-solid fa-temperature-low feel-icon"></i>
+              <div class="description">
+                <div class="name">Real Feel</div>
+                <div class="value feel"></div>
+              </div>
+            </div>
+            <div class="content-more__info-conditions_info__wind">
+              <i class="fa-solid fa-wind wind-icon"></i>
+              <div class="description">
+                <div class="name">Wind</div>
+                <div class="value wind"></div>
+              </div>
+            </div>
+            <div class="content-more__info-conditions_info__rain">
+              <i class="fa-solid fa-droplet rain-icon"></i>
+              <div class="description">
+                <div class="name">Chance of rain</div>
+                <div class="value rain"></div>
+              </div>
+            </div>
+            <div class="content-more__info-conditions_info__uv">
+              <i class="fa-solid fa-sun uv-icon"></i>
+              <div class="description">
+                <div class="name">UV Index</div>
+                <div class="value uv">4</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="gradient-overlay"></div>
+    </section>
+  </div>
+
+  <div class="modal">
+    <div class="modal_dialog">
+      <div class="modal_content">
+        <div class="form">
+          <div class="modal_close">&times;</div>
+          <div class="modal_title">Enter your city name to find out the current weather</div>
+          <input required type="search" name="city" class="modal_input" placeholder="Search city..."
+            autocomplete="off" />
+          <button class="modal_submit">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script type="module" src="./main.js"></script>
+<script src="https://kit.fontawesome.com/537023aa86.js" crossorigin="anonymous"></script>
+
+</html>
